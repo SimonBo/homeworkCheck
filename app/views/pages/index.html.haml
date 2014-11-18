@@ -1,21 +1,16 @@
-%h1 Listing pages
+%h1 Homework listing
 
-%table
-  %tr
-    %th Title
-    %th Content
-    %th
-    %th
-    %th
 
-  - @pages.each do |page|
-    %tr
-      %td= page.title
-      %td= page.content
-      %td= link_to 'Show', page
-      %td= link_to 'Edit', edit_page_path(page)
-      %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- @pages.each do |page|
+  .panel.panel-primary
+    .panel-heading
+      %b Title:
+      = page.title.html_safe
+    .panel-body
+      = page.content.html_safe
+    = link_to 'Show', page
+    = link_to "Mark HW", "/editor" + "/pages/#{page.id}", id: "edit_link", data: { save_url: mercury_update_path(page) }
+    = link_to 'Delete', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %br
 
-%br
-
-= link_to 'New Page', new_page_path
+= link_to 'New Page', "/editor/pages/new", id: "new_page", data: { save_url: mercury_new_path }

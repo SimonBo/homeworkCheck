@@ -1,5 +1,7 @@
 %h1 New page
 
-= render 'form'
+/ = render 'form'
+%h1#page_title{"data-mercury" => "full"}= @page.title.html_safe
+#page_content{"data-mercury" => "full"}= @page.content.html_safe
 
 = link_to 'Back', pages_path

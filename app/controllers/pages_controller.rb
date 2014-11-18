@@ -5,14 +5,23 @@ class PagesController < ApplicationController
     page = Page.find(params[:id])
     page.title = params[:content][:page_title][:value]
     page.content = params[:content][:page_content][:value]
-    page.save!
+    page.save
     render text: ""
+    flash[:notice] = "Homework checked/updated."
+  end
+
+  def mercury_new
+    title = params[:content][:page_title][:value]
+    content = params[:content][:page_content][:value]
+    page = Page.create(title: title, content: content)
+    render text: ""
+    flash[:notice] = "Homework added."
   end
 
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all
+    @pages = Page.order(created_at: :desc)
   end
 
   # GET /pages/1
@@ -22,28 +31,28 @@ class PagesController < ApplicationController
 
   # GET /pages/new
   def new
-    @page = Page.new
+    @page = Page.find(2)
   end
 
   # GET /pages/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
-  # POST /pages
-  # POST /pages.json
-  def create
-    @page = Page.new(page_params)
+  # # POST /pages
+  # # POST /pages.json
+  # def create
+  #   @page = Page.new(page_params)
 
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render :show, status: :created, location: @page }
-      else
-        format.html { render :new }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @page.save
+  #       format.html { redirect_to @page, notice: 'Page was successfully created.' }
+  #       format.json { render :show, status: :created, location: @page }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @page.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
