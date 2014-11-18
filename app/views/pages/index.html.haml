@@ -1,4 +1,7 @@
 %h1 Homework listing
+= link_to 'Add your homework', "/editor/pages/new", id: "new_page", class: "btn btn-primary", data: { save_url: mercury_new_path }
+%br
+%br
 
 
 - @pages.each do |page|
@@ -13,4 +16,4 @@
     = link_to 'Delete', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
     %br
 
-= link_to 'New Page', "/editor/pages/new", id: "new_page", data: { save_url: mercury_new_path }
+
