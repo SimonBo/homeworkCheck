@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.order(created_at: :desc)
+    @pages = Page.where('form_record = ?', false).order(created_at: :desc)
   end
 
   # GET /pages/1
@@ -31,7 +31,7 @@ class PagesController < ApplicationController
 
   # GET /pages/new
   def new
-    @page = Page.find(2)
+    @page = Page.where('form_record = ?', true).first
   end
 
   # GET /pages/1/edit

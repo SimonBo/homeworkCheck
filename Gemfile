@@ -3,13 +3,18 @@ gem 'haml'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'mercury-rails', github: 'jejacks0n/mercury'
-
+gem "faker"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rails_layout'
   gem 'haml-rails'
   gem 'pry-rails'
+end
+
+group :production do
+  gem 'rails_12factor' 
+  gem 'thin'
 end
 
 ruby '2.1.0'

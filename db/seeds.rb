@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Page.create(title: '', content: '', form_record: true)
+
+5.times do
+  title = Faker::Lorem.sentence
+  content = Faker::Lorem.paragraph
+  Page.create(title: title, content: content)
+end
