@@ -9,6 +9,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'rails_layout'
   gem 'haml-rails'
+  gem 'pry-rails'
 end
 
 ruby '2.1.0'

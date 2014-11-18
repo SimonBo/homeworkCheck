@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  put 'pages/:id', to: 'pages#mercury_update', as: :mercury_update
   mount Mercury::Engine => '/'
   resources :pages
 

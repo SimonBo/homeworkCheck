@@ -1,5 +1,13 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: [:show, :edit, :destroy]
+
+  def mercury_update
+    page = Page.find(params[:id])
+    page.title = params[:content][:page_title][:value]
+    page.content = params[:content][:page_content][:value]
+    page.save!
+    render text: ""
+  end
 
   # GET /pages
   # GET /pages.json
@@ -39,17 +47,17 @@ class PagesController < ApplicationController
 
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
-  def update
-    respond_to do |format|
-      if @page.update(page_params)
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
-        format.json { render :show, status: :ok, location: @page }
-      else
-        format.html { render :edit }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @page.update(page_params)
+  #       format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @page }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @page.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /pages/1
   # DELETE /pages/1.json
@@ -71,4 +79,4 @@ class PagesController < ApplicationController
     def page_params
       params.require(:page).permit(:title, :content)
     end
-end
+  end
