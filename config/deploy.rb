@@ -10,7 +10,7 @@ set :rbenv_type, :system
 set :rbenv_ruby, '2.1.2'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-
+set :ssh_options, { forward_agent: true, paranoid: true, keys: "~/.ssh/id_rsa" }
 # how many old releases do we want to keep, not much
 set :keep_releases, 5
 
