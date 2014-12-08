@@ -12,6 +12,7 @@ group :development do
   gem 'rails_layout'
   gem 'haml-rails'
   gem 'pry-rails'
+  gem 'capistrano-ssh-doctor', '~> 1.0'
 end
 
 group :production do

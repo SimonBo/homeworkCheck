@@ -5,8 +5,9 @@ set :deploy_user, 'root'
 set :scm, :git
 set :repo_url, 'git@github.com:SimonBo/homeworkCheck.git'
 set :ssh_options, {
-   config: false
+   :forward_agent => true
 }
+set :use_sudo, false
 # setup rbenv.
 set :rbenv_type, :system
 set :rbenv_ruby, '2.1.2'
