@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   put 'pages/new', to: 'pages#mercury_new', as: :mercury_new
   put 'pages/:id', to: 'pages#mercury_update', as: :mercury_update
   mount Mercury::Engine => '/'
