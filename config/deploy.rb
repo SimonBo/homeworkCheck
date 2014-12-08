@@ -1,5 +1,5 @@
 set :application, 'JadeHW'
-set :deploy_user, 'deploy'
+set :deploy_user, 'root'
 
 # setup repo details
 set :scm, :git
