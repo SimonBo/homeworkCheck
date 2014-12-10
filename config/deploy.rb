@@ -41,7 +41,7 @@ set(:config_files, %w(
 set(:executable_config_files, %w(
   unicorn_init.sh
 ))
- set :default_environment, {
+ set :default_env, {
       'PATH' => "/opt/ruby-enterprise/bin/:$PATH"
     }
 
