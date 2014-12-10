@@ -41,7 +41,9 @@ set(:config_files, %w(
 set(:executable_config_files, %w(
   unicorn_init.sh
 ))
-
+ set :default_environment, {
+      'PATH' => "/opt/ruby-enterprise/bin/:$PATH"
+    }
 
 # files which need to be symlinked to other parts of the
 # filesystem. For example nginx virtualhosts, log rotation
