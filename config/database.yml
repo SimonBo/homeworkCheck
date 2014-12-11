@@ -20,7 +20,7 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  host: localhost
+  # host: localhost
 
 development:
   <<: *default
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: JadeHW_production
-  username: JadeHW
-  password: <%= ENV['JADEHW_DATABASE_PASSWORD'] %>
+  database: jadehw_production
+  # username: JadeHW
+  # password: <%= ENV['JADEHW_DATABASE_PASSWORD'] %>
