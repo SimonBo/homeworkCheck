@@ -1,3 +1,5 @@
+require 'capistrano-rbenv'
+
 set :application, 'JadeHW'
 set :deploy_user, 'root'
 
